@@ -20,15 +20,23 @@ namespace LesnoeServer.Controllers
 
         // GET: apt/orders
         [HttpGet]
-        public async Task<List<OrdersDetails>> GetOrdersAsync(DateOnly? startDate = null, DateOnly? endDate = null, string? sort = null)
+        public async Task<IActionResult> GetOrdersAsync(DateOnly? startDate = null, DateOnly? endDate = null, string? sort = null)
         {
             var startParam = new SqlParameter("@startDate", startDate ?? (object)DBNull.Value);
             var endParam = new SqlParameter("@endDate", endDate ?? (object)DBNull.Value);
             var sortParam = new SqlParameter("@sort", sort ?? (object)DBNull.Value);
 
-            return await _context.Set<OrdersDetails>()
+            var orders = await _context.Set<OrdersDetails>()
                                  .FromSqlRaw("EXEC GetOrdersWithEmployees @startDate, @endDate, @sort", startParam, endParam, sortParam)
                                  .ToListAsync();
+
+            var response = new
+            {
+                Data = orders,
+                Count = orders.Count
+            };
+
+            return Ok(response);
         }
 
         // POST: api/orders

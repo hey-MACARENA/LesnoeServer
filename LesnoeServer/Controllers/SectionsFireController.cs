@@ -20,11 +20,19 @@ namespace LesnoeServer.Controllers
 
         // GET: apt/sectionsfire
         [HttpGet]
-        public async Task<List<SectionsFire>> GetSectionsFireAsync()
+        public async Task<IActionResult> GetSectionsFireAsync()
         {
-            return await _context.Set<SectionsFire>()
+            var sectionsFire = await _context.Set<SectionsFire>()
                                  .FromSqlRaw("EXEC GetSectionsWithFireSafetyMeasures")
                                  .ToListAsync();
+
+            var response = new
+            {
+                Data = sectionsFire,
+                Count = sectionsFire.Count
+            };
+
+            return Ok(response);
         }
     }
 }

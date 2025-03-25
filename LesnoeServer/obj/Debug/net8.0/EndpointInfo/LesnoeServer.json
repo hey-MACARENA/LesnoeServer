@@ -213,33 +213,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/LeavesDetails"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/LeavesDetails"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/LeavesDetails"
-                  }
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -423,33 +397,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/OrdersDetails"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/OrdersDetails"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/OrdersDetails"
-                  }
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -601,6 +549,54 @@
         }
       }
     },
+    "/api/positions": {
+      "get": {
+        "tags": [
+          "Positions"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Positions"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Positions"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Positions"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/reports": {
       "get": {
         "tags": [
@@ -625,33 +621,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ReportsDetails"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ReportsDetails"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ReportsDetails"
-                  }
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -819,33 +789,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/SectionsDetails"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/SectionsDetails"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/SectionsDetails"
-                  }
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -1004,33 +948,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/SectionsFire"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/SectionsFire"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/SectionsFire"
-                  }
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
@@ -1039,16 +957,6 @@
       "get": {
         "tags": [
           "Teams"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
         ],
         "responses": {
           "200": {
@@ -1115,33 +1023,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Travel_sheetsDetails"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Travel_sheetsDetails"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Travel_sheetsDetails"
-                  }
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -1364,33 +1246,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WorksDetails"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WorksDetails"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WorksDetails"
-                  }
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -1607,40 +1463,6 @@
         },
         "additionalProperties": false
       },
-      "LeavesDetails": {
-        "type": "object",
-        "properties": {
-          "leave_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "employee_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "employee_name": {
-            "type": "string",
-            "nullable": true
-          },
-          "leave_type_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "leave_type_name": {
-            "type": "string",
-            "nullable": true
-          },
-          "start_date": {
-            "type": "string",
-            "format": "date"
-          },
-          "end_date": {
-            "type": "string",
-            "format": "date"
-          }
-        },
-        "additionalProperties": false
-      },
       "Orders": {
         "type": "object",
         "properties": {
@@ -1663,67 +1485,25 @@
         },
         "additionalProperties": false
       },
-      "OrdersDetails": {
+      "Positions": {
         "type": "object",
         "properties": {
-          "order_id": {
+          "position_id": {
             "type": "integer",
             "format": "int32"
           },
-          "order_type_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "order_type_name": {
+          "position_name": {
             "type": "string",
             "nullable": true
           },
-          "order_date": {
-            "type": "string",
-            "format": "date"
-          },
-          "order_descriction": {
-            "type": "string",
-            "nullable": true
-          },
-          "employee_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "employee_name": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Reports": {
-        "type": "object",
-        "properties": {
-          "report_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "work_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "hourly_rate": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "norm_hours": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "overtime_hours": {
+          "required_quantity": {
             "type": "integer",
             "format": "int32"
           }
         },
         "additionalProperties": false
       },
-      "ReportsDetails": {
+      "Reports": {
         "type": "object",
         "properties": {
           "report_id": {
@@ -1779,90 +1559,6 @@
         },
         "additionalProperties": false
       },
-      "SectionsDetails": {
-        "type": "object",
-        "properties": {
-          "section_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "section_name": {
-            "type": "string",
-            "nullable": true
-          },
-          "territory_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "territory_type": {
-            "type": "string",
-            "nullable": true
-          },
-          "section_area": {
-            "type": "number",
-            "format": "double"
-          },
-          "cutting_age": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "fire_hazard_level_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "fire_hazard_level": {
-            "type": "string",
-            "nullable": true
-          },
-          "employee_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "employee_name": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "SectionsFire": {
-        "type": "object",
-        "properties": {
-          "section_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "section_name": {
-            "type": "string",
-            "nullable": true
-          },
-          "territory_type": {
-            "type": "string",
-            "nullable": true
-          },
-          "fire_hazard_level": {
-            "type": "string",
-            "nullable": true
-          },
-          "section_area": {
-            "type": "number",
-            "format": "double"
-          },
-          "cutting_age": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "work_date": {
-            "type": "string",
-            "format": "date"
-          },
-          "work_description": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "Teams": {
         "type": "object",
         "properties": {
@@ -1895,56 +1591,6 @@
           "date": {
             "type": "string",
             "format": "date"
-          },
-          "departure_mileage": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "return_mileage": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "departure_fuel": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "return_fuel": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "fuel_rate": {
-            "type": "number",
-            "format": "double"
-          },
-          "actual_fuel_consumption": {
-            "type": "number",
-            "format": "double"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Travel_sheetsDetails": {
-        "type": "object",
-        "properties": {
-          "travel_sheet_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "date": {
-            "type": "string",
-            "format": "date"
-          },
-          "vehicle_name": {
-            "type": "string",
-            "nullable": true
-          },
-          "driver_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "driver_name": {
-            "type": "string",
-            "nullable": true
           },
           "departure_mileage": {
             "type": "integer",
@@ -2016,48 +1662,6 @@
             "format": "date"
           },
           "work_description": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "WorksDetails": {
-        "type": "object",
-        "properties": {
-          "work_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "work_date": {
-            "type": "string",
-            "format": "date"
-          },
-          "work_type_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "work_type": {
-            "type": "string",
-            "nullable": true
-          },
-          "work_description": {
-            "type": "string",
-            "nullable": true
-          },
-          "section_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "section_name": {
-            "type": "string",
-            "nullable": true
-          },
-          "employee_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "employee_name": {
             "type": "string",
             "nullable": true
           }

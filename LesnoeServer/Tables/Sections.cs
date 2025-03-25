@@ -23,8 +23,8 @@ namespace LesnoeServer.Tables
         public int cutting_age { get; set; }
         public int fire_hazard_level_id { get; set; }
         public string fire_hazard_level { get; set; } = string.Empty;
-        public int employee_id { get; set; }
-        public string employee_name { get; set; } = string.Empty;
+        public int? employee_id { get; set; }
+        public string? employee_name { get; set; } = string.Empty;
     }
 
     public class SectionsFire

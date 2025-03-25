@@ -20,15 +20,23 @@ namespace LesnoeServer.Controllers
 
         // GET: apt/leaves
         [HttpGet]
-        public async Task<List<LeavesDetails>> GetLeavesAsync(DateOnly? startDate = null, DateOnly? endDate = null, string? sort = null)
+        public async Task<IActionResult> GetLeavesAsync(DateOnly? startDate = null, DateOnly? endDate = null, string? sort = null)
         {
             var startParam = new SqlParameter("@startDate", startDate ?? (object)DBNull.Value);
             var endParam = new SqlParameter("@endDate", endDate ?? (object)DBNull.Value);
             var sortParam = new SqlParameter("@sort", sort ?? (object)DBNull.Value);
 
-            return await _context.Set<LeavesDetails>()
+            var leaves = await _context.Set<LeavesDetails>()
                                  .FromSqlRaw("EXEC GetLeaves @startDate, @endDate, @sort", startParam, endParam, sortParam)
                                  .ToListAsync();
+
+            var response = new
+            {
+                Data = leaves,
+                Count = leaves.Count
+            };
+
+            return Ok(response);
         }
 
         // POST: api/leaves

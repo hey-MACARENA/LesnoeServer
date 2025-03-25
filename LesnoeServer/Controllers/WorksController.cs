@@ -20,15 +20,23 @@ namespace LesnoeServer.Controllers
 
         // GET: apt/works
         [HttpGet]
-        public async Task<List<WorksDetails>> GetWorksAsync(DateOnly? startDate = null, DateOnly? endDate = null, string? sort = null)
+        public async Task<IActionResult> GetWorksAsync(DateOnly? startDate = null, DateOnly? endDate = null, string? sort = null)
         {
             var startParam = new SqlParameter("@startDate", startDate ?? (object)DBNull.Value);
             var endParam = new SqlParameter("@endDate", endDate ?? (object)DBNull.Value);
             var sortParam = new SqlParameter("@sort", sort ?? (object)DBNull.Value);
 
-            return await _context.Set<WorksDetails>()
+            var werks = await _context.Set<WorksDetails>()
                                  .FromSqlRaw("EXEC GetWorksWithEmployees @startDate, @endDate, @sort", startParam, endParam, sortParam)
                                  .ToListAsync();
+
+            var response = new
+            {
+                Data = werks,
+                Count = werks.Count
+            };
+
+            return Ok(response);
         }
 
         // POST: api/works

@@ -26,8 +26,8 @@ namespace LesnoeServer.Controllers
             var sortParam = new SqlParameter("@sort", sort ?? (object)DBNull.Value);
 
             var employees = await _context.Set<EmployeeDetails>()
-                                          .FromSqlRaw("EXEC GetEmployees @teamId, @sort", teamIdParam, sortParam)
-                                          .ToListAsync();
+                                  .FromSqlRaw("EXEC GetEmployees @teamId, @sort", teamIdParam, sortParam)
+                                  .ToListAsync();
 
             var response = new
             {

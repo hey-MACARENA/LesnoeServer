@@ -20,14 +20,22 @@ namespace LesnoeServer.Controllers
 
         // GET: apt/reports
         [HttpGet]
-        public async Task<List<ReportsDetails>> GetReportsAsync(bool? IncludeOnlyOvertime = false, string? sort = null)
+        public async Task<IActionResult> GetReportsAsync(bool? IncludeOnlyOvertime = false, string? sort = null)
         {
             var IncludeParam = new SqlParameter("@IncludeOnlyOvertime", IncludeOnlyOvertime ?? (object)DBNull.Value);
             var sortParam = new SqlParameter("@sort", sort ?? (object)DBNull.Value);
 
-            return await _context.Set<ReportsDetails>()
+            var reports = await _context.Set<ReportsDetails>()
                                  .FromSqlRaw("EXEC GetReports @IncludeOnlyOvertime, @sort", IncludeParam, sortParam)
                                  .ToListAsync();
+
+            var response = new
+            {
+                Data = reports,
+                Count = reports.Count
+            };
+
+            return Ok(response);
         }
 
         // POST: api/reports

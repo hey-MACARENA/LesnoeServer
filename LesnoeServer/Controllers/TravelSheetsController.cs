@@ -20,15 +20,23 @@ namespace LesnoeServer.Controllers
 
         // GET: apt/travelsheets
         [HttpGet]
-        public async Task<List<Travel_sheetsDetails>> GetTravel_sheetsAsync(DateOnly? startDate = null, DateOnly? endDate = null, string? sort = null)
+        public async Task<IActionResult> GetTravel_sheetsAsync(DateOnly? startDate = null, DateOnly? endDate = null, string? sort = null)
         {
             var startParam = new SqlParameter("@startDate", startDate ?? (object)DBNull.Value);
             var endParam = new SqlParameter("@endDate", endDate ?? (object)DBNull.Value);
             var sortParam = new SqlParameter("@sort", sort ?? (object)DBNull.Value);
 
-            return await _context.Set<Travel_sheetsDetails>()
+            var travelSheets = await _context.Set<Travel_sheetsDetails>()
                                  .FromSqlRaw("EXEC GetTravelSheets @startDate, @endDate, @sort", startParam, endParam, sortParam)
                                  .ToListAsync();
+
+            var response = new
+            {
+                Data = travelSheets,
+                Count = travelSheets.Count
+            };
+
+            return Ok(response);
         }
 
         // POST: api/travelsheets
