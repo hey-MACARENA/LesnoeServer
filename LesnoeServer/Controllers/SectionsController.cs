@@ -20,8 +20,23 @@ namespace LesnoeServer.Controllers
 
         // GET: apt/sections
         [HttpGet]
-        public async Task<IActionResult> GetSectionsAsync(string? sort = null)
+        public async Task<IActionResult> GetSectionsAsync(string? sort = null, bool getClear = false)
         {
+            if (getClear)
+            {
+                var sectionsClear = await _context.Set<Sections>()
+                                  .FromSqlRaw("SELECT * FROM Sections")
+                                  .ToListAsync();
+
+                var responseClear = new
+                {
+                    Data = sectionsClear,
+                    Count = sectionsClear.Count
+                };
+
+                return Ok(responseClear);
+            }
+
             var sortParam = new SqlParameter("@sort", sort ?? (object)DBNull.Value);
 
             var sections = await _context.Set<SectionsDetails>()

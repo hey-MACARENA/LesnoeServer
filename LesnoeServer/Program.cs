@@ -22,7 +22,10 @@ namespace LesnoeServer
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection")));
 
             var app = builder.Build();
-            app.UseCors(builder => builder.AllowAnyOrigin());
+            app.UseCors(builder =>
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader());
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

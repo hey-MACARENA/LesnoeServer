@@ -487,6 +487,11 @@
         "Name": "sort",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "getClear",
+        "Type": "System.Boolean",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
