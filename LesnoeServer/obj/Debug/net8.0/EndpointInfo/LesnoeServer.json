@@ -181,6 +181,44 @@
         }
       }
     },
+    "/api/firehazardlevels": {
+      "get": {
+        "tags": [
+          "FireHazardLevels"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Fire_hazard_levels"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Fire_hazard_levels"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Fire_hazard_levels"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/leaves": {
       "get": {
         "tags": [
@@ -999,6 +1037,44 @@
         }
       }
     },
+    "/api/territories": {
+      "get": {
+        "tags": [
+          "Territories"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Territories"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Territories"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Territories"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/travelsheets": {
       "get": {
         "tags": [
@@ -1445,6 +1521,20 @@
         },
         "additionalProperties": false
       },
+      "Fire_hazard_levels": {
+        "type": "object",
+        "properties": {
+          "fire_hazard_level_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fire_hazard_level": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Leaves": {
         "type": "object",
         "properties": {
@@ -1575,6 +1665,20 @@
             "format": "int32"
           },
           "team_name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Territories": {
+        "type": "object",
+        "properties": {
+          "territory_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "territory_type": {
             "type": "string",
             "nullable": true
           }
