@@ -7,8 +7,8 @@ using System.Runtime.CompilerServices;
 
 namespace LesnoeServer.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("api/leaves")]
     public class LeavesController : ControllerBase
     {
         private readonly AppDbContext _context;
@@ -18,28 +18,20 @@ namespace LesnoeServer.Controllers
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        // GET: apt/leaves
         [HttpGet]
         public async Task<IActionResult> GetLeavesAsync(DateOnly? startDate = null, DateOnly? endDate = null, string? sort = null)
         {
-            var startParam = new SqlParameter("@startDate", startDate ?? (object)DBNull.Value);
-            var endParam = new SqlParameter("@endDate", endDate ?? (object)DBNull.Value);
-            var sortParam = new SqlParameter("@sort", sort ?? (object)DBNull.Value);
-
-            var leaves = await _context.Set<LeavesDetails>()
-                                 .FromSqlRaw("EXEC GetLeaves @startDate, @endDate, @sort", startParam, endParam, sortParam)
-                                 .ToListAsync();
-
-            var response = new
-            {
-                Data = leaves,
-                Count = leaves.Count
-            };
-
-            return Ok(response);
+            var leaves = await _context.Leaves.ToListAsync();
+            return Ok(leaves);
         }
 
-        // POST: api/leaves
+        [HttpGet("{id}")]
+        public async Task<Leaves> GetLeaveById(int id)
+        {
+            var leave = await _context.Leaves.FindAsync(id);
+            return leave == null ? new Leaves() : leave;
+        }
+
         [HttpPost]
         public async Task<ActionResult<Leaves>> PostEmployee([FromBody] Leaves leave)
         {
@@ -62,7 +54,6 @@ namespace LesnoeServer.Controllers
             }
         }
 
-        // PUT: api/leaves/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutLeave(
             [FromRoute] int id,
@@ -91,7 +82,6 @@ namespace LesnoeServer.Controllers
             }
         }
 
-        // DELETE: api/leaves/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteLeave([FromRoute] int id)
         {
@@ -109,14 +99,6 @@ namespace LesnoeServer.Controllers
             {
                 return StatusCode(500, $"Delete failed: {ex.Message}");
             }
-        }
-
-        // Вспомогательный метод для GET by ID
-        [HttpGet("{id}")]
-        public async Task<Leaves> GetLeaveById(int id)
-        {
-            var leave = await _context.Leaves.FindAsync(id);
-            return leave;
         }
     }
 }

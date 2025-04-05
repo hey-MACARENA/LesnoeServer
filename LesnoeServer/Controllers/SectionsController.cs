@@ -7,8 +7,8 @@ using System.Runtime.CompilerServices;
 
 namespace LesnoeServer.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("api/sections")]
     public class SectionsController : ControllerBase
     {
         private readonly AppDbContext _context;
@@ -18,41 +18,20 @@ namespace LesnoeServer.Controllers
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        // GET: apt/sections
         [HttpGet]
-        public async Task<IActionResult> GetSectionsAsync(string? sort = null, bool getClear = false)
+        public async Task<IActionResult> GetSectionsAsync()
         {
-            if (getClear)
-            {
-                var sectionsClear = await _context.Set<Sections>()
-                                  .FromSqlRaw("SELECT * FROM Sections")
-                                  .ToListAsync();
-
-                var responseClear = new
-                {
-                    Data = sectionsClear,
-                    Count = sectionsClear.Count
-                };
-
-                return Ok(responseClear);
-            }
-
-            var sortParam = new SqlParameter("@sort", sort ?? (object)DBNull.Value);
-
-            var sections = await _context.Set<SectionsDetails>()
-                                  .FromSqlRaw("EXEC GetSectionsWithEmployees @sort", sortParam)
-                                  .ToListAsync();
-
-            var response = new
-            {
-                Data = sections,
-                Count = sections.Count
-            };
-
-            return Ok(response);
+            var sections = await _context.Sections.ToListAsync();
+            return Ok(sections);
         }
 
-        // POST: api/sections
+        [HttpGet("{id}")]
+        public async Task<Sections> GetSectionById(int id)
+        {
+            var section = await _context.Sections.FindAsync(id);
+            return section == null ? new Sections() : section;
+        }
+
         [HttpPost]
         public async Task<ActionResult<Sections>> PostSection([FromBody] Sections section)
         {
@@ -75,7 +54,6 @@ namespace LesnoeServer.Controllers
             }
         }
 
-        // PUT: api/sections/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutSection(
             [FromRoute] int id,
@@ -105,7 +83,6 @@ namespace LesnoeServer.Controllers
             }
         }
 
-        // DELETE: api/sections/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSection([FromRoute] int id)
         {
@@ -123,14 +100,6 @@ namespace LesnoeServer.Controllers
             {
                 return StatusCode(500, $"Delete failed: {ex.Message}");
             }
-        }
-
-        // Вспомогательный метод для GET by ID
-        [HttpGet("{id}")]
-        public async Task<Sections> GetSectionById(int id)
-        {
-            var section = await _context.Sections.FindAsync(id);
-            return section;
         }
     }
 }

@@ -7,8 +7,8 @@ using System.Runtime.CompilerServices;
 
 namespace LesnoeServer.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("api/employees")]
     public class EmployeesController : ControllerBase
     {
         private readonly AppDbContext _context;
@@ -18,27 +18,20 @@ namespace LesnoeServer.Controllers
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        // GET: apt/employees
         [HttpGet]
-        public async Task<IActionResult> GetEmployeesAsync(int? teamId = null, string? sort = null)
+        public async Task<IActionResult> GetEmployeesAsync()
         {
-            var teamIdParam = new SqlParameter("@teamId", teamId ?? (object)DBNull.Value);
-            var sortParam = new SqlParameter("@sort", sort ?? (object)DBNull.Value);
-
-            var employees = await _context.Set<EmployeeDetails>()
-                                  .FromSqlRaw("EXEC GetEmployees @teamId, @sort", teamIdParam, sortParam)
-                                  .ToListAsync();
-
-            var response = new
-            {
-                Data = employees,
-                Count = employees.Count
-            };
-
-            return Ok(response);
+            var employees = await _context.Employees.ToListAsync();
+            return Ok(employees);
         }
 
-        // POST: api/employees
+        [HttpGet("{id}")]
+        public async Task<Employees> GetEmployeeById(int id)
+        {
+            var employee = await _context.Employees.FindAsync(id);
+            return employee == null ? new Employees() : employee;
+        }
+
         [HttpPost]
         public async Task<ActionResult<Employees>> PostEmployee([FromBody] Employees employee)
         {
@@ -61,7 +54,6 @@ namespace LesnoeServer.Controllers
             }
         }
 
-        // PUT: api/employees/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutEmployee(
             [FromRoute] int id,
@@ -92,7 +84,6 @@ namespace LesnoeServer.Controllers
             }
         }
 
-        // DELETE: api/employees/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEmployee([FromRoute] int id)
         {
@@ -110,14 +101,6 @@ namespace LesnoeServer.Controllers
             {
                 return StatusCode(500, $"Delete failed: {ex.Message}");
             }
-        }
-
-        // Вспомогательный метод для GET by ID
-        [HttpGet("{id}")]
-        public async Task<Employees> GetEmployeeById(int id)
-        {
-            var employee = await _context.Employees.FindAsync(id);
-            return employee;
         }
     }
 }

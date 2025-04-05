@@ -5,27 +5,10 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/employees": {
+    "/api/Employees": {
       "get": {
         "tags": [
           "Employees"
-        ],
-        "parameters": [
-          {
-            "name": "teamId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "sort",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
         ],
         "responses": {
           "200": {
@@ -80,7 +63,45 @@
         }
       }
     },
-    "/api/employees/{id}": {
+    "/api/Employees/{id}": {
+      "get": {
+        "tags": [
+          "Employees"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Employees"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Employees"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Employees"
+                }
+              }
+            }
+          }
+        }
+      },
       "put": {
         "tags": [
           "Employees"
@@ -141,42 +162,33 @@
             "description": "OK"
           }
         }
-      },
+      }
+    },
+    "/api/EmployeesTable": {
       "get": {
         "tags": [
-          "Employees"
+          "EmployeesTable"
         ],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
+            "name": "teamId",
+            "in": "query",
             "schema": {
               "type": "integer",
               "format": "int32"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Employees"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Employees"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Employees"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
@@ -219,7 +231,7 @@
         }
       }
     },
-    "/api/leaves": {
+    "/api/Leaves": {
       "get": {
         "tags": [
           "Leaves"
@@ -302,7 +314,45 @@
         }
       }
     },
-    "/api/leaves/{id}": {
+    "/api/Leaves/{id}": {
+      "get": {
+        "tags": [
+          "Leaves"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Leaves"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Leaves"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Leaves"
+                }
+              }
+            }
+          }
+        }
+      },
       "put": {
         "tags": [
           "Leaves"
@@ -363,42 +413,41 @@
             "description": "OK"
           }
         }
-      },
+      }
+    },
+    "/api/LeavesTable": {
       "get": {
         "tags": [
-          "Leaves"
+          "LeavesTable"
         ],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
+            "name": "startDate",
+            "in": "query",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Leaves"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Leaves"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Leaves"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
@@ -811,27 +860,10 @@
         }
       }
     },
-    "/api/sections": {
+    "/api/Sections": {
       "get": {
         "tags": [
           "Sections"
-        ],
-        "parameters": [
-          {
-            "name": "sort",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "getClear",
-            "in": "query",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
-          }
         ],
         "responses": {
           "200": {
@@ -886,7 +918,45 @@
         }
       }
     },
-    "/api/sections/{id}": {
+    "/api/Sections/{id}": {
+      "get": {
+        "tags": [
+          "Sections"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Sections"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Sections"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Sections"
+                }
+              }
+            }
+          }
+        }
+      },
       "put": {
         "tags": [
           "Sections"
@@ -945,44 +1015,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          }
-        }
-      },
-      "get": {
-        "tags": [
-          "Sections"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Sections"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Sections"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Sections"
-                }
-              }
-            }
           }
         }
       }
