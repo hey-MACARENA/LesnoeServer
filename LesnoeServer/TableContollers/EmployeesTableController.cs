@@ -18,12 +18,12 @@ namespace LesnoeServer.TableContollers
             _context = context ?? throw new ArgumentNullException(nameof(context));
 
             _columns = [
-                new ColumnDto("name", "Имя", "text", true, new SettingsDto(maxChar: 30)),
-                new ColumnDto("position_name", "Должность", "select", true, new SettingsDto(url: "api/positions")),
-                new ColumnDto("section_name", "Квартал", "select", false, new SettingsDto(url: "api/sections")),
-                new ColumnDto("team_name", "Команда", "select", false, new SettingsDto(url: "api/teams")),
-                new ColumnDto("work_experience", "Опыт", "number", true, new SettingsDto(maxNum: 99)),
-                new ColumnDto("residence", "Адрес", "text", true, new SettingsDto(maxChar: 50)),
+                new ColumnDto("name", "name", "Имя", "text", true, new SettingsDto(maxChar: 30)),
+                new ColumnDto("position_name", "position_id", "Должность", "select", true, new SettingsDto(url: "/positions")),
+                new ColumnDto("section_name", "section_id", "Квартал", "select", false, new SettingsDto(url: "/sections")),
+                new ColumnDto("team_name", "team_id", "Команда", "select", false, new SettingsDto(url: "/teams")),
+                new ColumnDto("work_experience", "work_experience", "Опыт", "number", true, new SettingsDto(maxNum: 99)),
+                new ColumnDto("residence", "residence", "Адрес", "text", true, new SettingsDto(maxChar: 50)),
             ];
         }
 
@@ -41,6 +41,7 @@ namespace LesnoeServer.TableContollers
 
             var response = new
             {
+                crudUrl = "/employees",
                 idName = "employee_id",
                 columns = _columns,
                 rows = items,

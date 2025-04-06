@@ -18,10 +18,10 @@ namespace LesnoeServer.TableContollers
             _context = context ?? throw new ArgumentNullException(nameof(context));
 
             _columns = [
-                new ColumnDto("employee_name", "Имя сотрудника", "text", true, new SettingsDto(maxChar: 30)),
-                new ColumnDto("leave_type_name", "Вид отпуска", "select", true, new SettingsDto(url: "api/leaves")),
-                new ColumnDto("start_date", "Дата начала", "date", true, new SettingsDto()),
-                new ColumnDto("end_date", "Дата окончания", "date", true, new SettingsDto()),
+                new ColumnDto("employee_name", "employee_id", "Имя сотрудника", "select", true, new SettingsDto(url: "/employees")),
+                new ColumnDto("leave_type_name", "leave_type_id", "Вид отпуска", "select", true, new SettingsDto(url: "/leavetypes")),
+                new ColumnDto("start_date", "start_date", "Дата начала", "date", true, new SettingsDto()),
+                new ColumnDto("end_date", "end_date", "Дата окончания", "date", true, new SettingsDto()),
             ];
         }
 

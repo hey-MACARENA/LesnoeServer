@@ -281,6 +281,105 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "LesnoeServer.Controllers.LeaveTypesController",
+    "Method": "GetLeavesAsync",
+    "RelativePath": "api/LeaveTypes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LesnoeServer.Controllers.LeaveTypesController",
+    "Method": "PostEmployee",
+    "RelativePath": "api/LeaveTypes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "leaveType",
+        "Type": "LesnoeServer.Tables.Leave_types",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "LesnoeServer.Tables.Leave_types",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "LesnoeServer.Controllers.LeaveTypesController",
+    "Method": "GetLeaveById",
+    "RelativePath": "api/LeaveTypes/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "LesnoeServer.Tables.Leave_types",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "LesnoeServer.Controllers.LeaveTypesController",
+    "Method": "PutLeave",
+    "RelativePath": "api/LeaveTypes/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedLeaveType",
+        "Type": "LesnoeServer.Tables.Leave_types",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LesnoeServer.Controllers.LeaveTypesController",
+    "Method": "DeleteLeave",
+    "RelativePath": "api/LeaveTypes/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "LesnoeServer.Controllers.OrdersController",
     "Method": "GetOrdersAsync",
     "RelativePath": "api/orders",
