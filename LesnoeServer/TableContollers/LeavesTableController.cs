@@ -20,8 +20,8 @@ namespace LesnoeServer.TableContollers
             _columns = [
                 new ColumnDto("employee_name", "employee_id", "Имя сотрудника", "select", true, new SettingsDto(url: "/employees")),
                 new ColumnDto("leave_type_name", "leave_type_id", "Вид отпуска", "select", true, new SettingsDto(url: "/leavetypes")),
-                new ColumnDto("start_date", "start_date", "Дата начала", "date", true, new SettingsDto()),
-                new ColumnDto("end_date", "end_date", "Дата окончания", "date", true, new SettingsDto()),
+                new ColumnDto("start_date", "start_date", "Дата начала", "start_date", true, new SettingsDto()),
+                new ColumnDto("end_date", "end_date", "Дата окончания", "end_date", true, new SettingsDto()),
             ];
         }
 
@@ -40,6 +40,7 @@ namespace LesnoeServer.TableContollers
 
             var response = new
             {
+                crudUrl = "/leaves",
                 idName = "leave_id",
                 columns = _columns,
                 rows = items,

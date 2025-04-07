@@ -8,7 +8,7 @@ namespace LesnoeServer.Tables
         public int travel_sheet_id { get; set; }
         public int driver_id { get; set; }
         public string vehicle_name { get; set; } = string.Empty;
-        public DateOnly date { get; set; }
+        public DateOnly departure_date { get; set; }
         public int departure_mileage { get; set; }
         public int return_mileage { get; set; }
         public int departure_fuel { get; set; }
@@ -20,7 +20,7 @@ namespace LesnoeServer.Tables
     public class Travel_sheetsDetails
     {
         public int travel_sheet_id { get; set; }
-        public DateOnly date { get; set; }
+        public DateOnly departure_date { get; set; }
         public string vehicle_name { get; set; } = string.Empty;
         public int driver_id { get; set; }
         public string driver_name { get; set; } = string.Empty;

@@ -5,6 +5,18 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Drivers": {
+      "get": {
+        "tags": [
+          "Drivers"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Employees": {
       "get": {
         "tags": [
@@ -1266,7 +1278,7 @@
         }
       }
     },
-    "/api/travelsheets": {
+    "/api/TravelSheets": {
       "get": {
         "tags": [
           "TravelSheets"
@@ -1349,7 +1361,45 @@
         }
       }
     },
-    "/api/travelsheets/{id}": {
+    "/api/TravelSheets/{id}": {
+      "get": {
+        "tags": [
+          "TravelSheets"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Travel_sheets"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Travel_sheets"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Travel_sheets"
+                }
+              }
+            }
+          }
+        }
+      },
       "put": {
         "tags": [
           "TravelSheets"
@@ -1410,42 +1460,41 @@
             "description": "OK"
           }
         }
-      },
+      }
+    },
+    "/api/TravelSheetsTable": {
       "get": {
         "tags": [
-          "TravelSheets"
+          "TravelSheetsTable"
         ],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
+            "name": "startDate",
+            "in": "query",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Travel_sheets"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Travel_sheets"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Travel_sheets"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
@@ -1905,7 +1954,7 @@
             "type": "string",
             "nullable": true
           },
-          "date": {
+          "departure_date": {
             "type": "string",
             "format": "date"
           },

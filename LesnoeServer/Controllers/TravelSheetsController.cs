@@ -7,8 +7,8 @@ using System.Runtime.CompilerServices;
 
 namespace LesnoeServer.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("api/travelsheets")]
     public class TravelSheetsController : ControllerBase
     {
         private readonly AppDbContext _context;
@@ -18,28 +18,20 @@ namespace LesnoeServer.Controllers
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        // GET: apt/travelsheets
         [HttpGet]
         public async Task<IActionResult> GetTravel_sheetsAsync(DateOnly? startDate = null, DateOnly? endDate = null, string? sort = null)
         {
-            var startParam = new SqlParameter("@startDate", startDate ?? (object)DBNull.Value);
-            var endParam = new SqlParameter("@endDate", endDate ?? (object)DBNull.Value);
-            var sortParam = new SqlParameter("@sort", sort ?? (object)DBNull.Value);
-
-            var travelSheets = await _context.Set<Travel_sheetsDetails>()
-                                 .FromSqlRaw("EXEC GetTravelSheets @startDate, @endDate, @sort", startParam, endParam, sortParam)
-                                 .ToListAsync();
-
-            var response = new
-            {
-                Data = travelSheets,
-                Count = travelSheets.Count
-            };
-
-            return Ok(response);
+            var travelSheet = await _context.Travel_sheets.ToListAsync();
+            return Ok(travelSheet);
         }
 
-        // POST: api/travelsheets
+        [HttpGet("{id}")]
+        public async Task<Travel_sheets> GetTravel_sheetById(int id)
+        {
+            var travel_sheet = await _context.Travel_sheets.FindAsync(id);
+            return travel_sheet == null ? new Travel_sheets() : travel_sheet;
+        }
+
         [HttpPost]
         public async Task<ActionResult<Travel_sheets>> PostTravel_sheet([FromBody] Travel_sheets Travel_sheet)
         {
@@ -62,7 +54,6 @@ namespace LesnoeServer.Controllers
             }
         }
 
-        // PUT: api/travelsheets/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTravel_sheet(
             [FromRoute] int id,
@@ -75,7 +66,7 @@ namespace LesnoeServer.Controllers
             if (existingTravel_sheet == null)
                 return NotFound();
 
-            existingTravel_sheet.date = updatedTravel_sheet.date;
+            existingTravel_sheet.departure_date = updatedTravel_sheet.departure_date;
             existingTravel_sheet.vehicle_name = updatedTravel_sheet.vehicle_name;
             existingTravel_sheet.driver_id = updatedTravel_sheet.driver_id;
             existingTravel_sheet.departure_mileage = updatedTravel_sheet.departure_mileage;
@@ -96,7 +87,6 @@ namespace LesnoeServer.Controllers
             }
         }
 
-        // DELETE: api/travelsheets/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTravel_sheet([FromRoute] int id)
         {
@@ -114,14 +104,6 @@ namespace LesnoeServer.Controllers
             {
                 return StatusCode(500, $"Delete failed: {ex.Message}");
             }
-        }
-
-        // Вспомогательный метод для GET by ID
-        [HttpGet("{id}")]
-        public async Task<Travel_sheets> GetTravel_sheetById(int id)
-        {
-            var travel_sheet = await _context.Travel_sheets.FindAsync(id);
-            return travel_sheet;
         }
     }
 }
