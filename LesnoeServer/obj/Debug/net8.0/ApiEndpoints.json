@@ -1,5 +1,15 @@
 [
   {
+    "ContainingType": "LesnoeServer.Controllers.Controller",
+    "Method": "GetEmpltyAsync",
+    "RelativePath": "api",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "LesnoeServer.Controllers.DriversController",
     "Method": "GetEmployeesAsync",
     "RelativePath": "api/Drivers",

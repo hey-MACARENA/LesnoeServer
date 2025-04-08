@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\MAKAPEHA\\Lesnoe\\LesnoeServer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E14D013F-D837-43A7-86A4-38BF0C7C0CC1}|LesnoeServer\\LesnoeServer.csproj|c:\\users\\makapeha\\lesnoe\\lesnoeserver\\lesnoeserver\\tablecontollers\\travelsheetstablecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E14D013F-D837-43A7-86A4-38BF0C7C0CC1}|LesnoeServer\\LesnoeServer.csproj|solutionrelative:lesnoeserver\\tablecontollers\\travelsheetstablecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E14D013F-D837-43A7-86A4-38BF0C7C0CC1}|LesnoeServer\\LesnoeServer.csproj|c:\\users\\makapeha\\lesnoe\\lesnoeserver\\lesnoeserver\\controllers\\driverscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E14D013F-D837-43A7-86A4-38BF0C7C0CC1}|LesnoeServer\\LesnoeServer.csproj|solutionrelative:lesnoeserver\\controllers\\driverscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E14D013F-D837-43A7-86A4-38BF0C7C0CC1}|LesnoeServer\\LesnoeServer.csproj|c:\\users\\makapeha\\lesnoe\\lesnoeserver\\lesnoeserver\\tablecontollers\\employeestablecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E14D013F-D837-43A7-86A4-38BF0C7C0CC1}|LesnoeServer\\LesnoeServer.csproj|solutionrelative:lesnoeserver\\tablecontollers\\employeestablecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E14D013F-D837-43A7-86A4-38BF0C7C0CC1}|LesnoeServer\\LesnoeServer.csproj|c:\\users\\makapeha\\lesnoe\\lesnoeserver\\lesnoeserver\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E14D013F-D837-43A7-86A4-38BF0C7C0CC1}|LesnoeServer\\LesnoeServer.csproj|solutionrelative:lesnoeserver\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E14D013F-D837-43A7-86A4-38BF0C7C0CC1}|LesnoeServer\\LesnoeServer.csproj|c:\\users\\makapeha\\lesnoe\\lesnoeserver\\lesnoeserver\\models\\employees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E14D013F-D837-43A7-86A4-38BF0C7C0CC1}|LesnoeServer\\LesnoeServer.csproj|solutionrelative:lesnoeserver\\models\\employees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E14D013F-D837-43A7-86A4-38BF0C7C0CC1}|LesnoeServer\\LesnoeServer.csproj|c:\\users\\makapeha\\lesnoe\\lesnoeserver\\lesnoeserver\\dto\\columndto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E14D013F-D837-43A7-86A4-38BF0C7C0CC1}|LesnoeServer\\LesnoeServer.csproj|solutionrelative:lesnoeserver\\dto\\columndto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E14D013F-D837-43A7-86A4-38BF0C7C0CC1}|LesnoeServer\\LesnoeServer.csproj|c:\\users\\makapeha\\lesnoe\\lesnoeserver\\lesnoeserver\\dto\\filtersdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E14D013F-D837-43A7-86A4-38BF0C7C0CC1}|LesnoeServer\\LesnoeServer.csproj|solutionrelative:lesnoeserver\\dto\\filtersdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E14D013F-D837-43A7-86A4-38BF0C7C0CC1}|LesnoeServer\\LesnoeServer.csproj|c:\\users\\makapeha\\lesnoe\\lesnoeserver\\lesnoeserver\\tablecontollers\\employeestablecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E14D013F-D837-43A7-86A4-38BF0C7C0CC1}|LesnoeServer\\LesnoeServer.csproj|solutionrelative:lesnoeserver\\tablecontollers\\employeestablecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E14D013F-D837-43A7-86A4-38BF0C7C0CC1}|LesnoeServer\\LesnoeServer.csproj|c:\\users\\makapeha\\lesnoe\\lesnoeserver\\lesnoeserver\\tablecontollers\\travelsheetstablecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E14D013F-D837-43A7-86A4-38BF0C7C0CC1}|LesnoeServer\\LesnoeServer.csproj|solutionrelative:lesnoeserver\\tablecontollers\\travelsheetstablecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,69 +34,82 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "ColumnDto.cs",
+              "DocumentMoniker": "C:\\Users\\MAKAPEHA\\Lesnoe\\LesnoeServer\\LesnoeServer\\DTO\\ColumnDto.cs",
+              "RelativeDocumentMoniker": "LesnoeServer\\DTO\\ColumnDto.cs",
+              "ToolTip": "C:\\Users\\MAKAPEHA\\Lesnoe\\LesnoeServer\\LesnoeServer\\DTO\\ColumnDto.cs",
+              "RelativeToolTip": "LesnoeServer\\DTO\\ColumnDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T16:06:29.233Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FiltersDto.cs",
+              "DocumentMoniker": "C:\\Users\\MAKAPEHA\\Lesnoe\\LesnoeServer\\LesnoeServer\\DTO\\FiltersDto.cs",
+              "RelativeDocumentMoniker": "LesnoeServer\\DTO\\FiltersDto.cs",
+              "ToolTip": "C:\\Users\\MAKAPEHA\\Lesnoe\\LesnoeServer\\LesnoeServer\\DTO\\FiltersDto.cs",
+              "RelativeToolTip": "LesnoeServer\\DTO\\FiltersDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T16:04:26.663Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "TravelSheetsTableController.cs",
               "DocumentMoniker": "C:\\Users\\MAKAPEHA\\Lesnoe\\LesnoeServer\\LesnoeServer\\TableContollers\\TravelSheetsTableController.cs",
               "RelativeDocumentMoniker": "LesnoeServer\\TableContollers\\TravelSheetsTableController.cs",
-              "ToolTip": "C:\\Users\\MAKAPEHA\\Lesnoe\\LesnoeServer\\LesnoeServer\\TableContollers\\TravelSheetsTableController.cs*",
-              "RelativeToolTip": "LesnoeServer\\TableContollers\\TravelSheetsTableController.cs*",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBYAAABwAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\MAKAPEHA\\Lesnoe\\LesnoeServer\\LesnoeServer\\TableContollers\\TravelSheetsTableController.cs",
+              "RelativeToolTip": "LesnoeServer\\TableContollers\\TravelSheetsTableController.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAQwCsAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-07T13:23:04.359Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DriversController.cs",
-              "DocumentMoniker": "C:\\Users\\MAKAPEHA\\Lesnoe\\LesnoeServer\\LesnoeServer\\Controllers\\DriversController.cs",
-              "RelativeDocumentMoniker": "LesnoeServer\\Controllers\\DriversController.cs",
-              "ToolTip": "C:\\Users\\MAKAPEHA\\Lesnoe\\LesnoeServer\\LesnoeServer\\Controllers\\DriversController.cs",
-              "RelativeToolTip": "LesnoeServer\\Controllers\\DriversController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAxwBYAAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T13:21:09.744Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "EmployeesTableController.cs",
               "DocumentMoniker": "C:\\Users\\MAKAPEHA\\Lesnoe\\LesnoeServer\\LesnoeServer\\TableContollers\\EmployeesTableController.cs",
               "RelativeDocumentMoniker": "LesnoeServer\\TableContollers\\EmployeesTableController.cs",
               "ToolTip": "C:\\Users\\MAKAPEHA\\Lesnoe\\LesnoeServer\\LesnoeServer\\TableContollers\\EmployeesTableController.cs",
               "RelativeToolTip": "LesnoeServer\\TableContollers\\EmployeesTableController.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAqwCcAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAqwCcAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-06T16:05:34.282Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "EmployeesController.cs",
               "DocumentMoniker": "C:\\Users\\MAKAPEHA\\Lesnoe\\LesnoeServer\\LesnoeServer\\Controllers\\EmployeesController.cs",
               "RelativeDocumentMoniker": "LesnoeServer\\Controllers\\EmployeesController.cs",
-              "ToolTip": "C:\\Users\\MAKAPEHA\\Lesnoe\\LesnoeServer\\LesnoeServer\\Controllers\\EmployeesController.cs",
-              "RelativeToolTip": "LesnoeServer\\Controllers\\EmployeesController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAxwAwAAAAFAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\MAKAPEHA\\Lesnoe\\LesnoeServer\\LesnoeServer\\Controllers\\EmployeesController.cs*",
+              "RelativeToolTip": "LesnoeServer\\Controllers\\EmployeesController.cs*",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBkAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-07T11:57:20.403Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Employees.cs",
               "DocumentMoniker": "C:\\Users\\MAKAPEHA\\Lesnoe\\LesnoeServer\\LesnoeServer\\Models\\Employees.cs",
               "RelativeDocumentMoniker": "LesnoeServer\\Models\\Employees.cs",
               "ToolTip": "C:\\Users\\MAKAPEHA\\Lesnoe\\LesnoeServer\\LesnoeServer\\Models\\Employees.cs",
               "RelativeToolTip": "LesnoeServer\\Models\\Employees.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAA9wBkAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAowBkAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-06T16:37:17.631Z",
               "EditorCaption": ""

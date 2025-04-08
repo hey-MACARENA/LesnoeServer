@@ -22,6 +22,9 @@ namespace LesnoeServer.Controllers
         public async Task<IActionResult> GetEmployeesAsync()
         {
             var employees = await _context.Employees.ToListAsync();
+
+            employees = employees.OrderBy(e => e.name).ToList();
+
             return Ok(employees);
         }
 

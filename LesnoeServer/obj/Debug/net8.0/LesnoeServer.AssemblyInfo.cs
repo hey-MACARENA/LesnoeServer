@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LesnoeServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3a5dd89983c6409563ad5e829aca504c55192b08")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+981f55fdb44a55f4b68e9f6f3bcbe140c3bfed1d")]
 [assembly: System.Reflection.AssemblyProductAttribute("LesnoeServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LesnoeServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
