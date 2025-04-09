@@ -18,21 +18,21 @@ namespace LesnoeServer.TableContollers
             _context = context ?? throw new ArgumentNullException(nameof(context));
 
             _columns = [
-                new ColumnDto("name", "name", "Имя", "text", true, new SettingsDto(maxChar: 30)),
-                new ColumnDto("position_name", "position_id", "Должность", "select", true, new SettingsDto(url: "/positions")),
-                new ColumnDto("section_name", "section_id", "Квартал", "select", false, new SettingsDto(url: "/sections")),
-                new ColumnDto("team_name", "team_id", "Бригада", "select", false, new SettingsDto(url: "/teams")),
-                new ColumnDto("work_experience", "work_experience", "Опыт", "number", true, new SettingsDto(maxNum: 99)),
-                new ColumnDto("residence", "residence", "Адрес", "text", true, new SettingsDto(maxChar: 50)),
+                new ColumnDTO("name", "name", "Имя", "text", true, new SettingsDTO(maxChar: 30)),
+                new ColumnDTO("position_name", "position_id", "Должность", "select", true, new SettingsDTO(url: "/positions")),
+                new ColumnDTO("section_name", "section_id", "Квартал", "select", false, new SettingsDTO(url: "/sections")),
+                new ColumnDTO("team_name", "team_id", "Бригада", "select", false, new SettingsDTO(url: "/teams")),
+                new ColumnDTO("work_experience", "work_experience", "Опыт", "number", true, new SettingsDTO(maxNum: 99)),
+                new ColumnDTO("residence", "residence", "Адрес", "text", true, new SettingsDTO(maxChar: 50)),
             ];
 
             _filters = [
-                new FiltersDto("teamId", "Бригада", "select", new SettingsDto(url: "/teams")),
+                new FiltersDTO("teamId", "Бригада", "select", new SettingsDTO(url: "/teams")),
             ];
         }
 
-        private List<ColumnDto> _columns;
-        private List<FiltersDto> _filters;
+        private List<ColumnDTO> _columns;
+        private List<FiltersDTO> _filters;
 
         [HttpGet]
         public async Task<IActionResult> GetEmployeesAsync(int? teamId = null, string? sort = null)

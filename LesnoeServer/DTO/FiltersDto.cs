@@ -1,13 +1,13 @@
 ﻿namespace LesnoeServer.DTO
 {
-    public class FiltersDto
+    public class FiltersDTO
     {
         public string Name { get; set; } = string.Empty;
         public string Label { get; set; } = string.Empty;
         public string Type { get; set; } = string.Empty;
-        public SettingsDto Settings { get; set; } = new SettingsDto();
+        public SettingsDTO Settings { get; set; } = new SettingsDTO();
 
-        public FiltersDto(string name, string label, string type, SettingsDto settingsDto)
+        public FiltersDTO(string name, string label, string type, SettingsDTO settingsDto)
         {
             Name = name;
             Label = label;

@@ -33,20 +33,38 @@ namespace LesnoeServer.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Sections>> PostSection([FromBody] Sections section)
+        public async Task<ActionResult<SectionsDetailsWithIds>> PostSection([FromBody] SectionsDetailsWithIds sectionDetails)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             try
             {
-                _context.Sections.Add(section);
+                var newSection = new Sections();
+                newSection.section_name = sectionDetails.section_name;
+                newSection.territory_id = sectionDetails.territory_id;
+                newSection.section_area = sectionDetails.section_area;
+                newSection.fire_hazard_level_id = sectionDetails.fire_hazard_level_id;
+                newSection.cutting_age = sectionDetails.cutting_age;
+
+                _context.Sections.Add(newSection);
+
+                await _context.SaveChangesAsync();
+
+                foreach (var empId in sectionDetails.employees)
+                {
+                    var employee = await _context.Employees.FindAsync(empId);
+                    if (employee != null)
+                    {
+                        employee.section_id = newSection.section_id;
+                    }
+                }
                 await _context.SaveChangesAsync();
 
                 return CreatedAtAction(
                     nameof(GetSectionById),
-                    new { id = section.section_id },
-                    section);
+                    new { id = sectionDetails.section_id },
+                    sectionDetails);
             }
             catch (Exception ex)
             {
@@ -57,7 +75,7 @@ namespace LesnoeServer.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutSection(
             [FromRoute] int id,
-            [FromBody] Sections updatedSection)
+            [FromBody] SectionsDetailsWithIds updatedSectionDetails)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -66,15 +84,30 @@ namespace LesnoeServer.Controllers
             if (existingSection == null)
                 return NotFound();
 
-            existingSection.section_name = updatedSection.section_name;
-            existingSection.territory_id = updatedSection.territory_id;
-            existingSection.section_area = updatedSection.section_area;
-            existingSection.cutting_age = updatedSection.cutting_age;
-            existingSection.fire_hazard_level_id = updatedSection.fire_hazard_level_id;
+            existingSection.section_name = updatedSectionDetails.section_name;
+            existingSection.territory_id = updatedSectionDetails.territory_id;
+            existingSection.section_area = updatedSectionDetails.section_area;
+            existingSection.cutting_age = updatedSectionDetails.cutting_age;
+            existingSection.fire_hazard_level_id = updatedSectionDetails.fire_hazard_level_id;
+
+            var employees = await _context.Employees.Where(e => e.section_id == id).ToListAsync();
+            foreach (var e in employees)
+                e.section_id = null;
 
             try
             {
                 await _context.SaveChangesAsync();
+
+                foreach (var empId in updatedSectionDetails.employees)
+                {
+                    var employee = await _context.Employees.FindAsync(empId);
+                    if (employee != null)
+                    {
+                        employee.section_id = existingSection.section_id;
+                    }
+                }
+                await _context.SaveChangesAsync();
+
                 return NoContent();
             }
             catch (Exception ex)

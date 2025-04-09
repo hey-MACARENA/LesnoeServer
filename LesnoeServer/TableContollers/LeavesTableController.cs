@@ -18,14 +18,14 @@ namespace LesnoeServer.TableContollers
             _context = context ?? throw new ArgumentNullException(nameof(context));
 
             _columns = [
-                new ColumnDto("employee_name", "employee_id", "Имя сотрудника", "select", true, new SettingsDto(url: "/employees")),
-                new ColumnDto("leave_type_name", "leave_type_id", "Вид отпуска", "select", true, new SettingsDto(url: "/leavetypes")),
-                new ColumnDto("start_date", "start_date", "Дата начала", "start_date", true, new SettingsDto()),
-                new ColumnDto("end_date", "end_date", "Дата окончания", "end_date", true, new SettingsDto()),
+                new ColumnDTO("employee_name", "employee_id", "Имя сотрудника", "select", true, new SettingsDTO(url: "/employees")),
+                new ColumnDTO("leave_type_name", "leave_type_id", "Вид отпуска", "select", true, new SettingsDTO(url: "/leavetypes")),
+                new ColumnDTO("start_date", "start_date", "Дата начала", "start_date", true, new SettingsDTO()),
+                new ColumnDTO("end_date", "end_date", "Дата окончания", "end_date", true, new SettingsDTO()),
             ];
         }
 
-        private List<ColumnDto> _columns;
+        private List<ColumnDTO> _columns;
 
         [HttpGet]
         public async Task<IActionResult> GetLeavesAsync(DateOnly? startDate = null, DateOnly? endDate = null, string? sort = null)

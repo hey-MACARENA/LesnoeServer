@@ -1,6 +1,6 @@
 ﻿namespace LesnoeServer.DTO
 {
-    public class SettingsDto
+    public class SettingsDTO
     {
         public int MaxChar { get; set; } = 0;
         public int MinNum { get; set; } = 0;
@@ -8,9 +8,9 @@
         public bool IntOnly { get; set; } = true;
         public string Url { get; set; } = string.Empty;
 
-        public SettingsDto() { }
+        public SettingsDTO() { }
 
-        public SettingsDto(int maxChar = 0, int minNum = 0, int maxNum = 0, bool intOnly = true, string url = "") {
+        public SettingsDTO(int maxChar = 0, int minNum = 0, int maxNum = 0, bool intOnly = true, string url = "") {
             MaxChar = maxChar;
             MinNum = minNum;
             MaxNum = maxNum;

@@ -18,19 +18,19 @@ namespace LesnoeServer.Controllers
             _context = context ?? throw new ArgumentNullException(nameof(context));
 
             _columns = [
-                new ColumnDto("departure_date", "departure_date", "Дата отправки", "date", true, new SettingsDto()),
-                new ColumnDto("vehicle_name", "vehicle_name", "Транспорт", "text", true, new SettingsDto(maxChar: 30)),
-                new ColumnDto("driver_name", "driver_id", "Водитель", "select", true, new SettingsDto(url: "/drivers")),
-                new ColumnDto("departure_mileage", "departure_mileage", "Километраж выезда", "number", true, new SettingsDto(maxNum: 9999999)),
-                new ColumnDto("return_mileage", "return_mileage", "Километраж возврата", "number", true, new SettingsDto(maxNum: 9999999)),
-                new ColumnDto("departure_fuel", "departure_fuel", "Торливо выезда", "number", true, new SettingsDto(maxNum: 9999999)),
-                new ColumnDto("return_fuel", "return_fuel", "Торливо возврата", "number", true, new SettingsDto(maxNum: 9999999)),
-                new ColumnDto("fuel_rate", "fuel_rate", "Расход топлива", "number", true, new SettingsDto(maxNum: 1, intOnly: false)),
-                new ColumnDto("actual_fuel_consumption", "actual_fuel_consumption", "Фактическиие расход топлива", "number", true, new SettingsDto(maxNum: 1, intOnly: false)),
+                new ColumnDTO("departure_date", "departure_date", "Дата отправки", "date", true, new SettingsDTO()),
+                new ColumnDTO("vehicle_name", "vehicle_name", "Транспорт", "text", true, new SettingsDTO(maxChar: 30)),
+                new ColumnDTO("driver_name", "driver_id", "Водитель", "select", true, new SettingsDTO(url: "/drivers")),
+                new ColumnDTO("departure_mileage", "departure_mileage", "Километраж выезда", "number", true, new SettingsDTO(maxNum: 9999999)),
+                new ColumnDTO("return_mileage", "return_mileage", "Километраж возврата", "number", true, new SettingsDTO(maxNum: 9999999)),
+                new ColumnDTO("departure_fuel", "departure_fuel", "Торливо выезда", "number", true, new SettingsDTO(maxNum: 9999999)),
+                new ColumnDTO("return_fuel", "return_fuel", "Торливо возврата", "number", true, new SettingsDTO(maxNum: 9999999)),
+                new ColumnDTO("fuel_rate", "fuel_rate", "Расход топлива", "number", true, new SettingsDTO(maxNum: 1, intOnly: false)),
+                new ColumnDTO("actual_fuel_consumption", "actual_fuel_consumption", "Фактическиие расход топлива", "number", true, new SettingsDTO(maxNum: 1, intOnly: false)),
             ];
         }
 
-        private List<ColumnDto> _columns;
+        private List<ColumnDTO> _columns;
 
         [HttpGet]
         public async Task<IActionResult> GetEmpltyAsync()

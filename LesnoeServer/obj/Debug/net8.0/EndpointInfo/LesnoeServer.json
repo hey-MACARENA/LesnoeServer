@@ -217,7 +217,7 @@
         }
       }
     },
-    "/api/firehazardlevels": {
+    "/api/FireHazardLevels": {
       "get": {
         "tags": [
           "FireHazardLevels"
@@ -1062,17 +1062,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Sections"
+                "$ref": "#/components/schemas/SectionsDetailsWithIds"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Sections"
+                "$ref": "#/components/schemas/SectionsDetailsWithIds"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Sections"
+                "$ref": "#/components/schemas/SectionsDetailsWithIds"
               }
             }
           }
@@ -1083,17 +1083,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Sections"
+                  "$ref": "#/components/schemas/SectionsDetailsWithIds"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Sections"
+                  "$ref": "#/components/schemas/SectionsDetailsWithIds"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Sections"
+                  "$ref": "#/components/schemas/SectionsDetailsWithIds"
                 }
               }
             }
@@ -1159,17 +1159,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Sections"
+                "$ref": "#/components/schemas/SectionsDetailsWithIds"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Sections"
+                "$ref": "#/components/schemas/SectionsDetailsWithIds"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Sections"
+                "$ref": "#/components/schemas/SectionsDetailsWithIds"
               }
             }
           }
@@ -1206,6 +1206,27 @@
       "get": {
         "tags": [
           "SectionsFire"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/SectionsTable": {
+      "get": {
+        "tags": [
+          "SectionsTable"
+        ],
+        "parameters": [
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -1252,7 +1273,7 @@
         }
       }
     },
-    "/api/territories": {
+    "/api/Territories": {
       "get": {
         "tags": [
           "Territories"
@@ -1919,6 +1940,52 @@
           "cutting_age": {
             "type": "integer",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SectionsDetailsWithIds": {
+        "type": "object",
+        "properties": {
+          "section_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "section_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "territory_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "territory_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "section_area": {
+            "type": "number",
+            "format": "double"
+          },
+          "cutting_age": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fire_hazard_level_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fire_hazard_level": {
+            "type": "string",
+            "nullable": true
+          },
+          "employees": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false

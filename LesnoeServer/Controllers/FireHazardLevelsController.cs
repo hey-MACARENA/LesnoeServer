@@ -5,8 +5,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LesnoeServer.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("api/firehazardlevels")]
     public class FireHazardLevelsController : ControllerBase
     {
         private readonly AppDbContext _context;
@@ -16,7 +16,6 @@ namespace LesnoeServer.Controllers
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        // GET: apt/teams
         [HttpGet]
         public async Task<List<Fire_hazard_levels>> GetTerritories()
         {

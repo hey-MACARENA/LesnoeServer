@@ -21,7 +21,7 @@ namespace LesnoeServer.Tables
         public string work_description { get; set; } = string.Empty;
         public int section_id { get; set; }
         public string section_name { get; set; } = string.Empty;
-        public int employee_id { get; set; }
-        public string employee_name { get; set; } = string.Empty;
+        public int? employee_id { get; set; }
+        public string? employee_name { get; set; } = string.Empty;
     }
 }

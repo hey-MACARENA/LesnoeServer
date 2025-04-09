@@ -142,7 +142,7 @@
   {
     "ContainingType": "LesnoeServer.Controllers.FireHazardLevelsController",
     "Method": "GetTerritories",
-    "RelativePath": "api/firehazardlevels",
+    "RelativePath": "api/FireHazardLevels",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -669,14 +669,14 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "section",
-        "Type": "LesnoeServer.Tables.Sections",
+        "Name": "sectionDetails",
+        "Type": "LesnoeServer.Tables.SectionsDetailsWithIds",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "LesnoeServer.Tables.Sections",
+        "Type": "LesnoeServer.Tables.SectionsDetailsWithIds",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -726,8 +726,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updatedSection",
-        "Type": "LesnoeServer.Tables.Sections",
+        "Name": "updatedSectionDetails",
+        "Type": "LesnoeServer.Tables.SectionsDetailsWithIds",
         "IsRequired": true
       }
     ],
@@ -760,6 +760,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "LesnoeServer.TableContollers.SectionsTableController",
+    "Method": "GetSectionsAsync",
+    "RelativePath": "api/SectionsTable",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "LesnoeServer.Controllers.TeamsController",
     "Method": "GetTeams",
     "RelativePath": "api/teams",
@@ -782,7 +798,7 @@
   {
     "ContainingType": "LesnoeServer.Controllers.TerritoriesController",
     "Method": "GetTerritories",
-    "RelativePath": "api/territories",
+    "RelativePath": "api/Territories",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

@@ -24,7 +24,9 @@ namespace LesnoeServer
         public DbSet<Reports> Reports { get; set; }
         public DbSet<ReportsDetails> ReportsDetails { get; set; }
         public DbSet<Sections> Sections { get; set; }
+        public DbSet<SectionsDetailsRaw> SectionsDetailsRaws { get; set; }
         public DbSet<SectionsDetails> SectionsDetails { get; set; }
+        public DbSet<SectionsDetailsWithIds> SectionsDetailsWithIds { get; set; }
         public DbSet<SectionsFire> SectionsWithFireSafetyMeasures { get; set; }
         public DbSet<Teams> Teams { get; set; }
         public DbSet<Territories> Territories { get; set; }
@@ -65,7 +67,17 @@ namespace LesnoeServer
                 entity.ToView(null);
             });
 
+            modelBuilder.Entity<SectionsDetailsRaw>(entity =>
+            {
+                entity.HasNoKey();
+                entity.ToView(null);
+            });
             modelBuilder.Entity<SectionsDetails>(entity =>
+            {
+                entity.HasNoKey();
+                entity.ToView(null);
+            });
+            modelBuilder.Entity<SectionsDetailsWithIds>(entity =>
             {
                 entity.HasNoKey();
                 entity.ToView(null);
