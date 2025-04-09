@@ -21,13 +21,18 @@ namespace LesnoeServer.TableContollers
                 new ColumnDto("name", "name", "Имя", "text", true, new SettingsDto(maxChar: 30)),
                 new ColumnDto("position_name", "position_id", "Должность", "select", true, new SettingsDto(url: "/positions")),
                 new ColumnDto("section_name", "section_id", "Квартал", "select", false, new SettingsDto(url: "/sections")),
-                new ColumnDto("team_name", "team_id", "Команда", "select", false, new SettingsDto(url: "/teams")),
+                new ColumnDto("team_name", "team_id", "Бригада", "select", false, new SettingsDto(url: "/teams")),
                 new ColumnDto("work_experience", "work_experience", "Опыт", "number", true, new SettingsDto(maxNum: 99)),
                 new ColumnDto("residence", "residence", "Адрес", "text", true, new SettingsDto(maxChar: 50)),
+            ];
+
+            _filters = [
+                new FiltersDto("teamId", "Бригада", "select", new SettingsDto(url: "/teams")),
             ];
         }
 
         private List<ColumnDto> _columns;
+        private List<FiltersDto> _filters;
 
         [HttpGet]
         public async Task<IActionResult> GetEmployeesAsync(int? teamId = null, string? sort = null)
@@ -44,6 +49,7 @@ namespace LesnoeServer.TableContollers
                 crudUrl = "/employees",
                 idName = "employee_id",
                 columns = _columns,
+                filters = _filters,
                 rows = items,
                 totalRows = items.Count
             };
