@@ -446,7 +446,7 @@
         ],
         "parameters": [
           {
-            "name": "startDate",
+            "name": "start_date",
             "in": "query",
             "schema": {
               "type": "string",
@@ -454,7 +454,7 @@
             }
           },
           {
-            "name": "endDate",
+            "name": "end_date",
             "in": "query",
             "schema": {
               "type": "string",
@@ -1502,7 +1502,7 @@
         ],
         "parameters": [
           {
-            "name": "startDate",
+            "name": "start_date",
             "in": "query",
             "schema": {
               "type": "string",
@@ -1510,7 +1510,7 @@
             }
           },
           {
-            "name": "endDate",
+            "name": "end_date",
             "in": "query",
             "schema": {
               "type": "string",

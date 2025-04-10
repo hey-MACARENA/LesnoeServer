@@ -27,7 +27,7 @@ namespace LesnoeServer.TableContollers
             ];
 
             _filters = [
-                new FiltersDTO("teamId", "Бригада", "select", new SettingsDTO(url: "/teams")),
+                new FiltersDTO("teamId", "Бригада", "select", new SettingsDTO(url: "/teams", allowAll: true)),
             ];
         }
 

@@ -28,15 +28,21 @@ namespace LesnoeServer.TableContollers
                 new ColumnDTO("fuel_rate", "fuel_rate", "Расход топлива", "number", true, new SettingsDTO(maxNum: 1, intOnly: false)),
                 new ColumnDTO("actual_fuel_consumption", "actual_fuel_consumption", "Фактическиие расход топлива", "number", true, new SettingsDTO(maxNum: 1, intOnly: false)),
             ];
+
+            _filters = [
+                new FiltersDTO("start_date", "Время", "start_date", new SettingsDTO()),
+                new FiltersDTO("end_date", "Время", "end_date", new SettingsDTO()),
+            ];
         }
 
         private List<ColumnDTO> _columns;
+        private List<FiltersDTO> _filters;
 
         [HttpGet]
-        public async Task<IActionResult> GetTravelSheetsAsync(DateOnly? startDate = null, DateOnly? endDate = null, string? sort = null)
+        public async Task<IActionResult> GetTravelSheetsAsync(DateOnly? start_date = null, DateOnly? end_date = null, string? sort = null)
         {
-            var startDateParam = new SqlParameter("@startDate", startDate ?? (object)DBNull.Value);
-            var endDateParam = new SqlParameter("@endDate", endDate ?? (object)DBNull.Value);
+            var startDateParam = new SqlParameter("@startDate", start_date ?? (object)DBNull.Value);
+            var endDateParam = new SqlParameter("@endDate", end_date ?? (object)DBNull.Value);
             var sortParam = new SqlParameter("@sort", sort ?? (object)DBNull.Value);
 
             var items = await _context.Set<Travel_sheetsDetails>()
@@ -48,6 +54,7 @@ namespace LesnoeServer.TableContollers
                 crudUrl = "/travelsheets",
                 idName = "travel_sheet_id",
                 columns = _columns,
+                filters = _filters,
                 rows = items,
                 totalRows = items.Count
             };
