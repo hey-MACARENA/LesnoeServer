@@ -18,20 +18,14 @@ namespace LesnoeServer.TableContollers
             _context = context ?? throw new ArgumentNullException(nameof(context));
 
             _columns = [
-                new ColumnDTO("employee_name", "employee_id", "Имя сотрудника", "select", true, new SettingsDTO(url: "/employees")),
-                new ColumnDTO("leave_type_name", "leave_type_id", "Вид отпуска", "select", true, new SettingsDTO(url: "/leavetypes")),
-                new ColumnDTO("start_date", "start_date", "Дата начала", "start_date", true, new SettingsDTO()),
-                new ColumnDTO("end_date", "end_date", "Дата окончания", "end_date", true, new SettingsDTO()),
-            ];
-
-            _filters = [
-                new FiltersDTO("start_date", "Время", "start_date", new SettingsDTO()),
-                new FiltersDTO("end_date", "Время", "end_date", new SettingsDTO()),
+                new ColumnDTO("employee_name", "employee_id", "Имя сотрудника", "select", true, true, "select", new SettingsDTO(url: "/employees")),
+                new ColumnDTO("leave_type_name", "leave_type_id", "Вид отпуска", "select", true, false, "select", new SettingsDTO(url: "/leavetypes")),
+                new ColumnDTO("start_date", "start_date", "Дата начала", "start_date", true, true, "date", new SettingsDTO()),
+                new ColumnDTO("end_date", "end_date", "Дата окончания", "end_date", true, true, "date", new SettingsDTO()),
             ];
         }
 
         private List<ColumnDTO> _columns;
-        private List<FiltersDTO> _filters;
 
         [HttpGet]
         public async Task<IActionResult> GetLeavesAsync(DateOnly? start_date = null, DateOnly? end_date = null, string? sort = null)
@@ -49,7 +43,6 @@ namespace LesnoeServer.TableContollers
                 crudUrl = "/leaves",
                 idName = "leave_id",
                 columns = _columns,
-                filters = _filters,
                 rows = items,
                 totalRows = items.Count
             };

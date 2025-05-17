@@ -18,12 +18,12 @@ namespace LesnoeServer.TableContollers
             _context = context ?? throw new ArgumentNullException(nameof(context));
 
             _columns = [
-                new ColumnDTO("section_name", "section_name", "Название", "text", true, new SettingsDTO(maxChar: 30)),
-                new ColumnDTO("territory_type", "territory_id", "Тип пород", "select", true, new SettingsDTO(url: "/territories")),
-                new ColumnDTO("section_area", "section_area", "Площадь", "number", true, new SettingsDTO(maxNum: 999999999)),
-                new ColumnDTO("cutting_age", "cutting_age", "Возраст", "number", true, new SettingsDTO(maxNum: 9999)),
-                new ColumnDTO("fire_hazard_level", "fire_hazard_level_id", "Уровень пожарной опасности", "select", true, new SettingsDTO(url: "/firehazardlevels")),
-                new ColumnDTO("employees", "employees", "Сорудники", "list", false, new SettingsDTO(url: "/employees")),
+                new ColumnDTO("section_name", "section_name", "Название", "text", true, true, "", new SettingsDTO(maxChar: 30)),
+                new ColumnDTO("territory_type", "territory_id", "Тип пород", "select", true, false, "select", new SettingsDTO(url: "/territories")),
+                new ColumnDTO("section_area", "section_area", "Площадь", "number", true, true, "", new SettingsDTO(maxNum: 999999999)),
+                new ColumnDTO("cutting_age", "cutting_age", "Возраст", "number", true, true, "", new SettingsDTO(maxNum: 9999)),
+                new ColumnDTO("fire_hazard_level", "fire_hazard_level_id", "Уровень пожарной опасности", "select", true, false, "select", new SettingsDTO(url: "/firehazardlevels")),
+                new ColumnDTO("employees", "employees", "Сорудники", "list", false, true, "", new SettingsDTO(url: "/employees")),
             ];
         }
 

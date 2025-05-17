@@ -1,4 +1,4 @@
-﻿using LesnoeServer.DTO;
+﻿/*using LesnoeServer.DTO;
 using LesnoeServer.Tables;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -63,3 +63,4 @@ namespace LesnoeServer.TableContollers
         }
     }
 }
+*/

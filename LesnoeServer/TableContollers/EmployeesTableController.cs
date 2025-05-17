@@ -18,21 +18,16 @@ namespace LesnoeServer.TableContollers
             _context = context ?? throw new ArgumentNullException(nameof(context));
 
             _columns = [
-                new ColumnDTO("name", "name", "Имя", "text", true, new SettingsDTO(maxChar: 30)),
-                new ColumnDTO("position_name", "position_id", "Должность", "select", true, new SettingsDTO(url: "/positions")),
-                new ColumnDTO("section_name", "section_id", "Квартал", "select", false, new SettingsDTO(url: "/sections")),
-                new ColumnDTO("team_name", "team_id", "Бригада", "select", false, new SettingsDTO(url: "/teams")),
-                new ColumnDTO("work_experience", "work_experience", "Опыт", "number", true, new SettingsDTO(maxNum: 99)),
-                new ColumnDTO("residence", "residence", "Адрес", "text", true, new SettingsDTO(maxChar: 50)),
-            ];
-
-            _filters = [
-                new FiltersDTO("teamId", "Бригада", "select", new SettingsDTO(url: "/teams", allowAll: true)),
+                new ColumnDTO("name", "name", "Имя", "text", true, true, "", new SettingsDTO(maxChar: 30)),
+                new ColumnDTO("position_name", "position_id", "Должность", "select", true, false, "select", new SettingsDTO(url: "/positions")),
+                new ColumnDTO("section_name", "section_id", "Квартал", "select", false, false, "select", new SettingsDTO(url: "/sections")),
+                new ColumnDTO("team_name", "team_id", "Бригада", "select", false, false, "select", new SettingsDTO(url: "/teams")),
+                new ColumnDTO("work_experience", "work_experience", "Опыт", "number", true, true, "", new SettingsDTO(maxNum: 99)),
+                new ColumnDTO("residence", "residence", "Адрес", "text", true, false, "", new SettingsDTO(maxChar: 50)),
             ];
         }
 
         private List<ColumnDTO> _columns;
-        private List<FiltersDTO> _filters;
 
         [HttpGet]
         public async Task<IActionResult> GetEmployeesAsync(int? teamId = null, string? sort = null)
@@ -49,7 +44,6 @@ namespace LesnoeServer.TableContollers
                 crudUrl = "/employees",
                 idName = "employee_id",
                 columns = _columns,
-                filters = _filters,
                 rows = items,
                 totalRows = items.Count
             };

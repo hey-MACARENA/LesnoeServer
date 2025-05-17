@@ -931,32 +931,6 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LesnoeServer.TableContollers.TravelSheetsTableController",
-    "Method": "GetTravelSheetsAsync",
-    "RelativePath": "api/TravelSheetsTable",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "start_date",
-        "Type": "System.Nullable\u00601[[System.DateOnly, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
-      },
-      {
-        "Name": "end_date",
-        "Type": "System.Nullable\u00601[[System.DateOnly, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
-      },
-      {
-        "Name": "sort",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "LesnoeServer.Controllers.WorksController",
     "Method": "GetWorksAsync",
     "RelativePath": "api/works",
